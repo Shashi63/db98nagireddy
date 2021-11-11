@@ -2,7 +2,7 @@ extends layout
 
 block content
   h1= title
-  - let dogs  = [{dogType:"Rottweiler", price: 500, weight:"20 kgs"},{dogType:"Pomeranian", price: 300, weight:"25 kgs"},{dogType:"Pug", price: 200, weight:"30 kgs"}]
+  - let dogs  = results;
   div(class="container-fluid mt-3")
   div(class="row")
     each dog,index in dogs
