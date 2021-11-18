@@ -1,0 +1,34 @@
+extends layout 
+ 
+block content 
+  h1= title 
+ 
+  form(id='dogForm', action="/resource/dog", method="POST") 
+    div.form-group 
+        label.costumeAttr(for='dogType') dog type 
+        input#costume_type(type='text', name='dogType') 
+    div.form-group 
+        label.costumeAttr(type='number',for='price') dog Price
+        input#size(type='number', name='size') 
+    div.form-group 
+        label.costumeAttr(for='weight') dog weight 
+        input#cost(type='text', name='weight') 
+    input(type="submit") 
+ 
+  script. 
+    document.forms['dogForm'].addEventListener('submit', (event) => { 
+      event.preventDefault(); 
+      // TODO do something here to show user that form is being submitted 
+      fetch(event.target.action, { 
+        method: 'POST', 
+        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+      }).then((resp) => { 
+        return resp.json(); // or resp.text() or whatever the server sends 
+      }).then((body) => { 
+        alert("Save succeded") 
+        // TODO handle body 
+      }).catch((error) => { 
+        // TODO handle error 
+        alert("Save failed " + error ) 
+      }); 
+    });
