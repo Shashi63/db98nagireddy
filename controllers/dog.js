@@ -41,8 +41,8 @@ exports.dog_view_all_Page = async function(req, res) {
     } 
     catch(err){ 
         res.status(500); 
-        res.send(`{"error": ${err}}`); 
-    }   
+        res.send(`{"error": ${err}}`);
+    }
 }; 
  
 // Handle Costume create on POST. 

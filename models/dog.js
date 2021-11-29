@@ -1,9 +1,9 @@
 const mongoose = require("mongoose") 
 const dogSchema = mongoose.Schema({ 
     dogType: String, 
-    price: Number, 
-    weight: String 
+    price: { type: Number, min: 100, max: 10000 }, 
+    weight:{ type: String, minLength: 5 } 
 }) 
  
-module.exports = mongoose.model("dogs", 
+module.exports = mongoose.model("dog", 
 dogSchema)
